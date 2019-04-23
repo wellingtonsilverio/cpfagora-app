@@ -147,20 +147,25 @@
     color: #fff;
   }
 
-#search .container .intro-text .input-cpfcnpj .error-alert{
+#search .error-alert{
     font-size: 8px;
     line-height: 8px;
     background-color: #ef535044;
     border: solid 1px #ef5350;
     padding: 10px;
+    max-width: 650px;
     width: 90%;
-    margin: 6px auto 0 auto;
-    max-width: 665px;
+    margin: 0 auto 6px auto;
     border-radius: 6px;
   }
 
-  #search .container .intro-text .input-cpfcnpj {
-    height: 80px;
+  #search .input-cpfcnpj input {
+    max-width: 650px;
+    width: 90%;
+    padding: 6px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    text-align: center;
   }
   
   @media (min-width: 992px) {

@@ -32,24 +32,24 @@
   <div class="container">
     <form [formGroup]="searchCpfCnpj" novalidate (ngSubmit)="search(searchCpfCnpj.value)" class="intro-text">
       <div class="intro-lead-in">Pesquise Agora pelo CPF</div>
-      <div class="intro-heading text-uppercase input-cpfcnpj">
+      <div class="input-cpfcnpj">
         <input matInput type="text" formControlName="cpfcnpj" placeholder="CPF/CNPJ">
-        <div *ngIf="cpfcnpj.getError('required')" class="error-alert">
-          Campo necessário
-        </div>
-        <div *ngIf="cpfcnpj.getError('minlength')" class="error-alert">
-          É necessário mínimo de 8 caracteres
-        </div>
       </div>
-      <div class="intro-heading text-uppercase input-cpfcnpj">
+      <div class="input-cpfcnpj">
         <input matInput type="text" formControlName="email" placeholder="E-mail Pessoal">
-        <div *ngIf="email.getError('required')" class="error-alert">
-          Campo necessario
-        </div>
-        <div *ngIf="email.getError('email')" class="error-alert">
-          Não é um e-mail valido
-        </div>
       </div>
+      <!-- <div *ngIf="cpfcnpj.getError('required')" class="error-alert">
+        CPF/CNPJ: Campo necessário
+      </div>
+      <div *ngIf="cpfcnpj.getError('minlength')" class="error-alert">
+        CPF/CNPJ: É necessário mínimo de 8 caracteres
+      </div>
+      <div *ngIf="email.getError('required')" class="error-alert">
+        E-mail: Campo necessario
+      </div>
+      <div *ngIf="email.getError('email')" class="error-alert">
+        E-mail: Não é um e-mail valido
+      </div> -->
       <input type="submit" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
         [disabled]="!searchCpfCnpj.valid" value="Consultar">
     </form>
@@ -154,3 +154,5 @@
 </footer>
 
 <router-outlet></router-outlet>
+
+<ngx-spinner></ngx-spinner>

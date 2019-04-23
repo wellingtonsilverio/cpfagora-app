@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { SearchService } from './search.service';
 
+import { NgxSpinnerService } from 'ngx-spinner';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,7 +16,8 @@ export class AppComponent {
 
   constructor(
     public fb: FormBuilder,
-    public searchService: SearchService
+    public searchService: SearchService,
+    private spinner: NgxSpinnerService
   ) {
     this.searchCpfCnpj = fb.group({
       cpfcnpj: ['', [Validators.required, Validators.minLength(8)]],
@@ -23,6 +26,8 @@ export class AppComponent {
   }
 
   async search(form: any) {
+    this.spinner.show();
+
     await this.getCPFOrCNPJ(form.email, form.cpfcnpj);
   }
 
@@ -45,12 +50,14 @@ export class AppComponent {
       this.error = error;
       this.goto('searcherror');
     }
+    
+    this.spinner.hide();
   }
 
   goto(hashtag: string) {
     const link = document.createElement('a');
     link.setAttribute('class', 'nav-link js-scroll-trigger');
-    link.href = '#'+hashtag;
+    link.href = '#' + hashtag;
     setTimeout(() => {
       link.click();
     }, 100);
