@@ -17,22 +17,23 @@ export class AppComponent {
     public searchService: SearchService
   ) {
     this.searchCpfCnpj = fb.group({
-      cpfcnpj: ['', [Validators.required, Validators.minLength(8)]]
+      cpfcnpj: ['', [Validators.required, Validators.minLength(8)]],
+      email: ['', [Validators.required, Validators.email]]
     });
   }
 
   async search(form: any) {
-    await this.getCPFOrCNPJ(form.cpfcnpj);
+    await this.getCPFOrCNPJ(form.email, form.cpfcnpj);
   }
 
-  async getCPFOrCNPJ(cpfcnpj: string) {
+  async getCPFOrCNPJ(email: string, cpfcnpj: string) {
     this.error = undefined;
     this.cpf = undefined;
 
     try {
-      const cpfOrCnpj = await this.searchService.getCPFOrCNPJ(cpfcnpj).toPromise();
+      const cpfOrCnpj = await this.searchService.getCPFOrCNPJ(email, cpfcnpj).toPromise();
       if (!cpfOrCnpj || cpfOrCnpj.status === false) {
-        throw new Error(cpfOrCnpj.data.error);
+        throw cpfOrCnpj.data.error;
       } else {
         if (cpfOrCnpj.data.cpf) {
           this.cpf = cpfOrCnpj.data;
@@ -56,4 +57,5 @@ export class AppComponent {
   }
 
   get cpfcnpj() { return this.searchCpfCnpj.get('cpfcnpj'); }
+  get email() { return this.searchCpfCnpj.get('email'); }
 }

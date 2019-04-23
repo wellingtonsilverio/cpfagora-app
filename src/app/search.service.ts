@@ -8,6 +8,7 @@ import { map, catchError, tap } from 'rxjs/operators';
 })
 export class SearchService {
   API_URL = 'https://cpfagora-api.herokuapp.com';
+  // API_URL = 'http://localhost:3000';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -16,7 +17,7 @@ export class SearchService {
 
   constructor(private http: HttpClient) { }
 
-  getCPFOrCNPJ(cpfcnpj: string): Observable<any> {
-    return this.http.get(this.API_URL + '/search/' + cpfcnpj);
+  getCPFOrCNPJ(email: string, cpfcnpj: string): Observable<any> {
+    return this.http.get(`${this.API_URL}/free/${email}/${cpfcnpj}`);
   }
 }

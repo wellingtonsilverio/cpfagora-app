@@ -146,6 +146,22 @@
   #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
     color: #fff;
   }
+
+#search .container .intro-text .input-cpfcnpj .error-alert{
+    font-size: 8px;
+    line-height: 8px;
+    background-color: #ef535044;
+    border: solid 1px #ef5350;
+    padding: 10px;
+    width: 90%;
+    margin: 6px auto 0 auto;
+    max-width: 665px;
+    border-radius: 6px;
+  }
+
+  #search .container .intro-text .input-cpfcnpj {
+    height: 80px;
+  }
   
   @media (min-width: 992px) {
     #mainNav {
@@ -217,7 +233,7 @@
   
   @media (min-width: 768px) {
     header.masthead .intro-text {
-      padding-top: 300px;
+      padding-top: 200px;
       padding-bottom: 200px;
     }
     header.masthead .intro-text .intro-lead-in {
