@@ -7,8 +7,8 @@ import { map, catchError, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class SearchService {
-  API_URL = 'https://cpfagora-api.herokuapp.com';
-  // API_URL = 'http://localhost:3000';
+  // API_URL = 'https://cpfagora-api.herokuapp.com';
+  API_URL = 'http://localhost:3000';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'

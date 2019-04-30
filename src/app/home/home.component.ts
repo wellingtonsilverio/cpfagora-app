@@ -12,6 +12,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class HomeComponent implements OnInit {
   searchCpfCnpj: FormGroup;
   cpf: any;
+  cnpj: any;
   error: any;
 
   constructor(
@@ -40,12 +41,19 @@ export class HomeComponent implements OnInit {
 
     try {
       const cpfOrCnpj = await this.searchService.getCPFOrCNPJ(email, cpfcnpj).toPromise();
+      
       if (!cpfOrCnpj || cpfOrCnpj.status === false) {
-        throw cpfOrCnpj.data.error;
+        throw (cpfOrCnpj && cpfOrCnpj.data) ? cpfOrCnpj.data.error : "Não retornou resultado";
       } else {
-        if (cpfOrCnpj.data.cpf) {
-          this.cpf = cpfOrCnpj.data;
-          this.goto('searchcpf');
+        if (cpfOrCnpj.data) {
+          if (cpfOrCnpj.data.cpf) {
+            this.cpf = cpfOrCnpj.data;
+            this.goto('searchcpf');
+          }
+          if (cpfOrCnpj.data.cnpj) {
+            this.cnpj = cpfOrCnpj.data;
+            this.goto('searchcnpj');
+          }
         }
       }
     } catch (error) {
