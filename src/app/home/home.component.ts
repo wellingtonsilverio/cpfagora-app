@@ -4,6 +4,7 @@ import { SearchService } from '../search.service';
 
 import { NgxSpinnerService } from 'ngx-spinner';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -22,7 +23,8 @@ export class HomeComponent implements OnInit {
   ) {
     this.searchCpfCnpj = fb.group({
       cpfcnpj: ['', [Validators.required, Validators.minLength(8)]],
-      email: ['', [Validators.required, Validators.email]]
+      email: ['', [Validators.required, Validators.email]],
+      captcha: ['', Validators.required]
     });
   }
 
@@ -76,5 +78,6 @@ export class HomeComponent implements OnInit {
 
   get cpfcnpj() { return this.searchCpfCnpj.get('cpfcnpj'); }
   get email() { return this.searchCpfCnpj.get('email'); }
+  get captcha() { return this.searchCpfCnpj.get('captcha'); }
 
 }

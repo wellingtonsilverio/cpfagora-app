@@ -21,8 +21,9 @@
       <div *ngIf="email.getError('email')" class="error-alert">
         E-mail: Não é um e-mail valido
       </div> -->
+      <ng-hcaptcha formControlName="captcha" *ngIf="!captcha.valid"></ng-hcaptcha>
       <input type="submit" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
-        [disabled]="!searchCpfCnpj.valid" value="Consultar">
+        [disabled]="!searchCpfCnpj.valid" value="Consultar" *ngIf="captcha.valid">
     </form>
   </div>
 </header>

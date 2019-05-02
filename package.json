@@ -21,6 +21,8 @@
     "@angular/router": "~7.2.0",
     "@types/jquery": "^3.3.29",
     "core-js": "^2.5.4",
+    "ng-hcaptcha": "0.1.0-beta.3",
+    "ng2-adsense": "^5.4.2",
     "ngx-spinner": "^7.1.4",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
