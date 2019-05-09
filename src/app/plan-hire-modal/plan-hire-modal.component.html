@@ -1,0 +1,72 @@
+<!-- https://cdn.dribbble.com/users/179783/screenshots/4685850/artboard.png -->
+<ngx-smart-modal #PlanProModel [identifier]="'PlanProModel'" id="pro-plan">
+  <div class="row">
+    <div class="col-5 cover"></div>
+    <div class="col-7 form">
+      <div class="form-container">
+        <h4>Plano PRO</h4>
+        <small>Desfrute de todas funcionalidades do CPF Agora e tenha acesso ilimitado a sinteses cadastrais.
+          Acesse pelo site ou pela API, com assistencia do nosso suporte por e-mail.</small>
+        <form [formGroup]="requestPlan">
+          <aw-wizard>
+            <aw-wizard-step stepTitle="Informações" [formGroup]="informations">
+              <div class="webflow-style-input">
+                <input type="text" formControlName="cpfcnpj" placeholder="CPF / CNPJ">
+              </div>
+              <div class="webflow-style-input">
+                <input type="text" formControlName="email" placeholder="E-mail">
+              </div>
+              <div class="webflow-style-input">
+                <input type="text" formControlName="senha" placeholder="Senha">
+              </div>
+              <div class="webflow-style-input">
+                <input type="text" formControlName="resenha" placeholder="Confirmar Senha">
+              </div>
+              <div class="step-button">
+                <div class="webflow-style-button right">
+                  <button type="button" awNextStep>próximo</button>
+                </div>
+              </div>
+            </aw-wizard-step>
+            <aw-wizard-step stepTitle="Descrição e Termos" [formGroup]="describles">
+              <div class="webflow-style-input">
+                <textarea formControlName="describle" rows="5" placeholder="Como irá utilizar o CPF Agora ?"></textarea>
+              </div>
+              <div class="webflow-style-input">
+                <div class="term">
+                  <div class="page__toggle">
+                    <label class="toggle">
+                      <input class="toggle__input" type="checkbox" formControlName="terms">
+                      <span class="toggle__label">
+                        <span class="toggle__text">Li e aceitos os <a>Termos de uso</a></span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="step-button">
+                <div class="webflow-style-button">
+                  <button type="button" awPreviousStep>Anterior</button>
+                </div>
+                <div class="webflow-style-button right">
+                  <button type="button" awNextStep>próximo</button>
+                </div>
+              </div>
+            </aw-wizard-step>
+            <aw-wizard-step stepTitle="Pagamento" [formGroup]="payments">
+              <input type="hidden" formControlName="boleto">
+              <div class="step-button">
+                <div class="webflow-style-button">
+                  <button type="button" awPreviousStep>Anterior</button>
+                </div>
+                <div class="webflow-style-button right">
+                  <button>Finalizar</button>
+                </div>
+              </div>
+            </aw-wizard-step>
+          </aw-wizard>
+        </form>
+      </div>
+    </div>
+  </div>
+</ngx-smart-modal>

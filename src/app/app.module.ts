@@ -1,21 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import localePT from '@angular/common/locales/pt';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
+import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
+import { AdblockComponent } from './adblock/adblock.component';
+import { PlanComponent } from './plan/plan.component';
+import { ApiDocComponent } from './api-doc/api-doc.component';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
-// import { AdsenseModule } from 'ng2-adsense';
 import { NgHcaptchaModule } from 'ng-hcaptcha';
-import { AdblockComponent } from './adblock/adblock.component';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
+import { PlanHireModalComponent } from './plan-hire-modal/plan-hire-modal.component';
+import { ArchwizardModule } from 'angular-archwizard';
+
+registerLocaleData(localePT);
 
 @NgModule({
   declarations: [
@@ -23,7 +31,10 @@ import { AdblockComponent } from './adblock/adblock.component';
     FooterComponent,
     MenuComponent,
     HomeComponent,
-    AdblockComponent
+    AdblockComponent,
+    PlanComponent,
+    PlanHireModalComponent,
+    ApiDocComponent
   ],
   imports: [
     BrowserModule,
@@ -32,15 +43,15 @@ import { AdblockComponent } from './adblock/adblock.component';
     ReactiveFormsModule,
     AppRoutingModule,
     NgxSpinnerModule,
+    ArchwizardModule,
+    NgxSmartModalModule.forRoot(),
     NgHcaptchaModule.forRoot({
         siteKey: '9df504e5-b11a-48ee-99a6-7354851c911d'
-    }),
-    // AdsenseModule.forRoot({
-    //   adClient: 'ca-pub-3073718421833762',
-    //   // adSlot: 0,
-    // })
+    })
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt-BR' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

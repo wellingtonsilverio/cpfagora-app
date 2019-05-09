@@ -1,0 +1,74 @@
+#plan {
+    background-color: #fff7d6 !important;
+}
+
+.bg-light {
+    padding: 38px 0 48px 0;
+}
+
+#plan .section-heading {
+    padding: 0 0 18px 0;
+}
+
+#plan .section-heading {
+    margin: 12px 0 !important;
+    padding: 12px 0 !important;
+}
+
+.plan-card {
+    background-color: #fff;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 1px 2px 5px 0px rgba(120,120,120,0.5);
+    color: #000;
+}
+.plan-card .info {
+    width: 100%;
+    background-color: #56a8fe;
+    color: #fff;
+    padding: 24px;
+}
+.plan-card .info h3{
+    display: inline;
+    font-size: 18px;
+    padding: 0;
+}
+.plan-card .info h4{
+    padding: 0;
+    margin: 0;
+}
+.plan-card .info h3 .high{
+    display: inline;
+    font-size: 60px;
+}
+.plan-card .info h3 small{
+    display: inline;
+    font-size: 8px;
+    padding: 0 0 0 4px;
+}
+.plan-card .info .text-muted {
+    font-size: 14px;
+    color: #ffffffcc !important;
+    margin: 0 !important;
+}
+.plan-card .list li {
+    list-style-type: none;
+    font-size: 12px;
+    padding: 6px 0;
+    text-transform: capitalize;
+}
+
+.plan-card .list {
+    margin: 0 0 24px 0;
+}
+
+.plan-card .btn-primary {
+    background-color: #56a8fe;
+    color: #fff;
+}
+.plan-card .btn-primary:hover {
+    background-color: #56a8fe !important;
+}
+.plan-card .details {
+    padding: 24px;
+}

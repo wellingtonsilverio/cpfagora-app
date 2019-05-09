@@ -1,0 +1,11 @@
+.doc-card {
+    margin-top: 60px;
+}
+
+.doc-card .doc-menu {
+    background-color: aqua;
+}
+
+.doc-card .doc-container {
+    background-color: brown;
+}

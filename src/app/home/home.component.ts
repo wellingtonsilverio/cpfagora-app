@@ -50,6 +50,7 @@ export class HomeComponent implements OnInit {
         if (cpfOrCnpj.data) {
           if (cpfOrCnpj.data.cpf) {
             this.cpf = cpfOrCnpj.data;
+            this.cpf.nascimento = this.cpf.nascimento.substr(0, 10);
             this.goto('searchcpf');
           }
           if (cpfOrCnpj.data.cnpj) {
