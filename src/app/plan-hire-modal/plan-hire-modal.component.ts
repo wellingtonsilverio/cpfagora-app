@@ -9,6 +9,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class PlanHireModalComponent implements OnInit {
   requestPlan: FormGroup;
+  cpfcnpjType: string;
 
   constructor(
     public fb: FormBuilder,
@@ -26,7 +27,7 @@ export class PlanHireModalComponent implements OnInit {
         resenha: ['', [Validators.required, Validators.minLength(6)]]
       }),
       describles: fb.group({
-        describle: ['', Validators.required, Validators.minLength(15)],
+        describle: ['', Validators.required],
         terms: [false, Validators.requiredTrue]
       }),
       payments: fb.group({
@@ -36,6 +37,22 @@ export class PlanHireModalComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  cpfcnpjMask(rawValue) {
+    rawValue = rawValue.replace(/[^\d]+/g, '');    
+    if (rawValue.length <= 11){
+      return [ /\d/ , /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/ , /\d/, /\d/, '-', /\d/, /\d/ ];  
+    }
+    else {
+      return [ /\d/ , /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/ , /\d/, /\d/, '/', /\d/, /\d/,/\d/, /\d/, '-', /\d/, /\d/ ];
+    }
+  }
+
+  passwordEquals() {
+    if (this.senha.value.length <= 0 && this.resenha.value.length <= 0) return true;
+
+    return this.senha.value == this.resenha.value;
   }
 
   get informations() { return this.requestPlan.get('informations'); }
@@ -54,5 +71,4 @@ export class PlanHireModalComponent implements OnInit {
 
   get payments() { return this.requestPlan.get('payments'); }
   get boleto() { return this.payments.get('boleto'); }
-
 }

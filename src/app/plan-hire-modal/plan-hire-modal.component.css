@@ -108,6 +108,9 @@ Changed:
   .webflow-style-input input::-webkit-input-placeholder {
     color: #7881A1;
   }
+  .webflow-style-input.invalid {
+    background-color: rgba(84, 57, 57, 0.8) !important;
+  }
   
   .webflow-style-input textarea {
     color: #BFD2FF;
@@ -135,6 +138,9 @@ Changed:
   }
   .webflow-style-button.right {
     float: right;
+  }
+  .webflow-style-button.right.invalid {
+    background-color: rgba(84, 57, 57, 0.8) !important;
   }
   .webflow-style-button:after {
     content: "";

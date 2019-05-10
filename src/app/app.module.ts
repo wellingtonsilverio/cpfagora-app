@@ -16,12 +16,13 @@ import { HomeComponent } from './home/home.component';
 import { AdblockComponent } from './adblock/adblock.component';
 import { PlanComponent } from './plan/plan.component';
 import { ApiDocComponent } from './api-doc/api-doc.component';
+import { PlanHireModalComponent } from './plan-hire-modal/plan-hire-modal.component';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgHcaptchaModule } from 'ng-hcaptcha';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
-import { PlanHireModalComponent } from './plan-hire-modal/plan-hire-modal.component';
 import { ArchwizardModule } from 'angular-archwizard';
+import { TextMaskModule } from 'angular2-text-mask';
 
 registerLocaleData(localePT);
 
@@ -47,7 +48,8 @@ registerLocaleData(localePT);
     NgxSmartModalModule.forRoot(),
     NgHcaptchaModule.forRoot({
         siteKey: '9df504e5-b11a-48ee-99a6-7354851c911d'
-    })
+    }),
+    TextMaskModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' }

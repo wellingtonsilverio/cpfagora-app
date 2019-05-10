@@ -11,20 +11,20 @@
           <aw-wizard>
             <aw-wizard-step stepTitle="Informações" [formGroup]="informations">
               <div class="webflow-style-input">
-                <input type="text" formControlName="cpfcnpj" placeholder="CPF / CNPJ">
+                <input type="text" formControlName="cpfcnpj" [textMask]="{mask: cpfcnpjMask}" placeholder="CPF / CNPJ">
               </div>
               <div class="webflow-style-input">
                 <input type="text" formControlName="email" placeholder="E-mail">
               </div>
               <div class="webflow-style-input">
-                <input type="text" formControlName="senha" placeholder="Senha">
+                <input type="password" formControlName="senha" placeholder="Senha">
               </div>
-              <div class="webflow-style-input">
-                <input type="text" formControlName="resenha" placeholder="Confirmar Senha">
+              <div class="webflow-style-input" [class.invalid]="!passwordEquals()">
+                <input type="password" formControlName="resenha" placeholder="Confirmar Senha">
               </div>
               <div class="step-button">
                 <div class="webflow-style-button right">
-                  <button type="button" awNextStep>próximo</button>
+                  <button type="button" awNextStep [disabled]="!passwordEquals()">próximo</button>
                 </div>
               </div>
             </aw-wizard-step>
@@ -59,8 +59,8 @@
                 <div class="webflow-style-button">
                   <button type="button" awPreviousStep>Anterior</button>
                 </div>
-                <div class="webflow-style-button right">
-                  <button>Finalizar</button>
+                <div class="webflow-style-button right" [class.invalid]="!requestPlan.valid">
+                  <button type="button" [disabled]="!requestPlan.valid" >Finalizar</button>
                 </div>
               </div>
             </aw-wizard-step>
