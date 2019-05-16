@@ -62,7 +62,7 @@
                   <button type="button" awPreviousStep>Anterior</button>
                 </div>
                 <div class="webflow-style-button right" [class.invalid]="!requestPlan.valid">
-                  <button type="button" [disabled]="!requestPlan.valid" (click)="save()" >Finalizar</button>
+                  <button type="button" [disabled]="!requestPlan.valid" (click)="save(PlanProModel)" >Finalizar</button>
                 </div>
               </div>
             </aw-wizard-step>

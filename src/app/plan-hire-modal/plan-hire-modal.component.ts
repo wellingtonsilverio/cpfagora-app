@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'plan-hire-modal',
@@ -13,6 +14,7 @@ export class PlanHireModalComponent implements OnInit {
 
   constructor(
     public fb: FormBuilder,
+    public searchService: SearchService,
     private spinner: NgxSpinnerService
   ) {
     this.requestPlan = fb.group({
@@ -59,8 +61,20 @@ export class PlanHireModalComponent implements OnInit {
     this.paymentDate.patchValue((new Date()).toISOString());
   }
 
-  save() {
-    console.log(this.requestPlan.value);
+  async save(PlanProModel) {
+    this.spinner.show();
+
+    try {
+      const response = await this.searchService.saveForm(1, this.requestPlan.value).toPromise();
+
+      console.log(response);
+    } catch (error) {
+      console.log(error);      
+    }
+
+    PlanProModel.close();
+
+    this.spinner.hide();
   }
 
   get informations() { return this.requestPlan.get('informations'); }
