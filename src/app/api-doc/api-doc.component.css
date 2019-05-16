@@ -1,11 +1,51 @@
 .doc-card {
     margin-top: 60px;
 }
-
-.doc-card .doc-menu {
-    background-color: aqua;
+.doc-card h1{
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline;
+    line-height: 60px;
 }
-
-.doc-card .doc-container {
-    background-color: brown;
+.doc-card small{
+    float: right;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 60px;
+}
+.url {
+    background-color: #455A64;
+    padding: 12px 18px;
+    color: #FFFFFF;
+    border-radius: 6px;
+}
+.url .type{
+    display: inline;
+    color: #CFD8DC;
+    font-weight: 900;
+    padding-right: 12px;
+}
+.field {
+    margin: 14px;
+}
+.field .title div{
+    background-color: #607D8Baa;
+    text-align: center;
+}
+.field div div{
+    border: 1px solid #212121;
+}
+.response {
+    height: 160px;
+    overflow-y: scroll;
+    background-color: #455A64;
+    padding: 12px 18px;
+    color: #FFFFFF;
+    border-radius: 6px;
+}
+.response .title{
+    padding-bottom: 8px;
+}
+.response .json pre {
+    color: #FFFFFF;
 }

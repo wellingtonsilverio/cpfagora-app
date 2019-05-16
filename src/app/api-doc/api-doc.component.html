@@ -6,11 +6,42 @@
       </div>
     </div>
     <div class="row doc-card">
-      <div class="col-4 doc-menu">
-        menu
-      </div>
-      <div class="col-8 doc-container">
-        container
+      <div class="col-12">
+        <h1>Buscar pelo CPF ou CNPJ</h1>
+        <small>Retorna os dados da pessoal ou da empresa</small>
+        <div class="url"><div class="type">GET</div>/:token/:cpfoucnpj</div>
+        <div class="field">
+          <div class="row title">
+            <div class="col-4">Campo</div>
+            <div class="col-2">Tipo</div>
+            <div class="col-6">Descrição</div>
+          </div>
+          <div class="row">
+            <div class="col-4">token</div>
+            <div class="col-2">String</div>
+            <div class="col-6">Token secreto fornecido pela CPF Agora no e-mail</div>
+          </div>
+          <div class="row">
+            <div class="col-4">cpfoucnpj</div>
+            <div class="col-2">String</div>
+            <div class="col-6">CPF ou CNPJ para a busca dos dados (É melhor o envio desse campo sem pontos, barras ou hifens)</div>
+          </div>
+        </div>
+        <h3>Sucesso (200)</h3>
+        <h4>CPF</h4>
+        <div class="response">
+          <div class="title">HTTP/1.0 200 OK</div>
+          <div class="json">
+            <pre>{{ jsonExemple.searchCPF | json }}</pre>
+          </div>
+        </div>
+        <h4>CNPJ</h4>
+        <div class="response">
+          <div class="title">HTTP/1.0 200 OK</div>
+          <div class="json">
+            <pre>{{ jsonExemple.searchCNPJ | json }}</pre>
+          </div>
+        </div>
       </div>
     </div>
   </div>
