@@ -20,4 +20,7 @@ export class SearchService {
   getCPFOrCNPJ(email: string, cpfcnpj: string): Observable<any> {
     return this.http.get(`${this.API_URL}/free/${email}/${cpfcnpj}`);
   }
+  saveForm(plan: number, form: any): Observable<any> {
+    return this.http.post(`${this.API_URL}/buy/plan`, { plan, form });
+  }
 }

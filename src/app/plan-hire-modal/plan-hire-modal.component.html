@@ -54,13 +54,15 @@
               </div>
             </aw-wizard-step>
             <aw-wizard-step stepTitle="Pagamento" [formGroup]="payments">
-              <input type="hidden" formControlName="boleto">
+              <div class="payment-button">
+                <!-- INICIO DO BOTAO PAGSEGURO --><a class="pagseguro" (click)="setPayment()" href="javascript:void(0)" onclick="PagSeguroLightbox('9B848E54FEFE94E77490DF9D627D1C1C'); return false;"><img src="//assets.pagseguro.com.br/ps-integration-assets/botoes/pagamentos/205x30-pagar-cinza.gif" alt="Pague com PagSeguro - é rápido, grátis e seguro!" /></a><!-- FIM DO BOTAO PAGSEGURO -->
+              </div>
               <div class="step-button">
                 <div class="webflow-style-button">
                   <button type="button" awPreviousStep>Anterior</button>
                 </div>
                 <div class="webflow-style-button right" [class.invalid]="!requestPlan.valid">
-                  <button type="button" [disabled]="!requestPlan.valid" >Finalizar</button>
+                  <button type="button" [disabled]="!requestPlan.valid" (click)="save()" >Finalizar</button>
                 </div>
               </div>
             </aw-wizard-step>

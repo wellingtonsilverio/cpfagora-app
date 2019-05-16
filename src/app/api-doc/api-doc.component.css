@@ -18,12 +18,17 @@
     padding: 12px 18px;
     color: #FFFFFF;
     border-radius: 6px;
+    line-height: 30px;
 }
 .url .type{
     display: inline;
     color: #CFD8DC;
     font-weight: 900;
     padding-right: 12px;
+}
+.url small {
+    display: inline;
+    line-height: 30px;
 }
 .field {
     margin: 14px;
@@ -48,4 +53,8 @@
 }
 .response .json pre {
     color: #FFFFFF;
+}
+.doc-card h4 {
+    margin: 16px 0 6px 0;
+    font-size: 18px;
 }

@@ -372,4 +372,16 @@ LEVEL 1. CORE STYLES
     --toggleSize: 25px;
   }
 
-  
+  .payment-button{
+    margin: 60px 0 !important;
+    width: 100%;
+  }
+  .payment-button .pagseguro {
+    margin: 60px 0 !important;
+    width: 100%;
+  }
+  .payment-button img{
+    width: 300px;
+    max-width: 100%;
+    margin: auto;
+  }

@@ -31,7 +31,7 @@ export class PlanHireModalComponent implements OnInit {
         terms: [false, Validators.requiredTrue]
       }),
       payments: fb.group({
-        boleto: ['']
+        date: ['', [Validators.required]]
       })
     });
   }
@@ -55,6 +55,14 @@ export class PlanHireModalComponent implements OnInit {
     return this.senha.value == this.resenha.value;
   }
 
+  setPayment() {
+    this.paymentDate.patchValue((new Date()).toISOString());
+  }
+
+  save() {
+    console.log(this.requestPlan.value);
+  }
+
   get informations() { return this.requestPlan.get('informations'); }
   get cpfcnpj() { return this.informations.get('cpfcnpj'); }
   get nome() { return this.informations.get('nome'); }
@@ -70,5 +78,5 @@ export class PlanHireModalComponent implements OnInit {
   get terms() { return this.describles.get('terms'); }
 
   get payments() { return this.requestPlan.get('payments'); }
-  get boleto() { return this.payments.get('boleto'); }
+  get paymentDate() { return this.payments.get('date'); }
 }
