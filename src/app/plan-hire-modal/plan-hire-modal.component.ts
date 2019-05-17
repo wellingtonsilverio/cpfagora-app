@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SearchService } from '../search.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'plan-hire-modal',
@@ -15,7 +16,8 @@ export class PlanHireModalComponent implements OnInit {
   constructor(
     public fb: FormBuilder,
     public searchService: SearchService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private toastr: ToastrService
   ) {
     this.requestPlan = fb.group({
       informations: fb.group({
@@ -67,6 +69,9 @@ export class PlanHireModalComponent implements OnInit {
     try {
       const response = await this.searchService.saveForm(1, this.requestPlan.value).toPromise();
 
+      if (response.status == true) {
+        this.toastr.success("Compra realizada com sucesso!", "Sua conta foi criada, enviaremos um e-mail em breve, muito obrigado.");
+      }
       console.log(response);
     } catch (error) {
       console.log(error);      

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import localePT from '@angular/common/locales/pt';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +24,7 @@ import { NgHcaptchaModule } from 'ng-hcaptcha';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
 import { ArchwizardModule } from 'angular-archwizard';
 import { TextMaskModule } from 'angular2-text-mask';
+import { ToastrModule } from 'ngx-toastr';
 
 registerLocaleData(localePT);
 
@@ -49,7 +51,9 @@ registerLocaleData(localePT);
     NgHcaptchaModule.forRoot({
         siteKey: '9df504e5-b11a-48ee-99a6-7354851c911d'
     }),
-    TextMaskModule
+    TextMaskModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule added
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' }
