@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { map, catchError, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { API_URL } from './app.api';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
-  API_URL = 'https://cpfagora-api.herokuapp.com';
-  // API_URL = 'http://localhost:3000';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -18,9 +16,10 @@ export class SearchService {
   constructor(private http: HttpClient) { }
 
   getCPFOrCNPJ(email: string, cpfcnpj: string): Observable<any> {
-    return this.http.get(`${this.API_URL}/free/${email}/${cpfcnpj}`);
+    return this.http.get(`${API_URL}/free/${email}/${cpfcnpj}`);
   }
+
   saveForm(plan: number, form: any): Observable<any> {
-    return this.http.post(`${this.API_URL}/buy/plan`, { plan, form });
+    return this.http.post(`${API_URL}/buy/plan`, { plan, form });
   }
 }

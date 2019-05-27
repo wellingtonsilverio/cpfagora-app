@@ -23,7 +23,7 @@
       </div> -->
       <ng-hcaptcha formControlName="captcha" *ngIf="!captcha.valid"></ng-hcaptcha>
       <input type="submit" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
-        [disabled]="!searchCpfCnpj.valid" value="Consultar" *ngIf="captcha.valid">
+       value="Consultar"> <!--  [disabled]="!searchCpfCnpj.valid" *ngIf="captcha.valid"-->
     </form>
   </div>
 </header>
@@ -125,7 +125,7 @@
 </section>
 
 <!-- SEARCH: ERROR -->
-<section class="bg-light" id="team" *ngIf="error" id="searcherror">
+<section class="bg-light" *ngIf="error" id="searcherror">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">

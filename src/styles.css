@@ -162,3 +162,9 @@
   .nsm-body {
     border-radius: 6px;
   }
+
+
+
+@media (max-width: 1001px) {
+  .hidden-mobile {    display: none;  }
+}
